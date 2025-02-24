@@ -59,6 +59,11 @@ public class Livre implements Serializable {
                 '}';
     }
 
+    @manyToMany
+    @JoinTable(name = "compo",
+            joinColumns = @JoinColumn(name = "ID_LIV", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "ID_EMP", referencedColumnName = "ID"))
+
     public static void main(String[] args) {
         Livre livre = new Livre("titre", "auteur");
         System.out.println(livre);
